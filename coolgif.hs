@@ -2,8 +2,8 @@
 -- Constants
 
 xrange, yrange :: [Float]
-xrange = [0..100]
-yrange = [0..100]
+xrange = [0..99]
+yrange = [0..99]
 
 width, height :: Int
 width  = length xrange
@@ -33,7 +33,7 @@ images = fmap renderFrame frames
 renderFrame :: [[Float]] -> String
 renderFrame rs = unlines [ "P2"
                          , show width ++ " " ++ show height
-                         , show maxVal
+                         , show $ (floor maxVal :: Int)
                          , unlines (map renderRow rs)
                          ]
 
